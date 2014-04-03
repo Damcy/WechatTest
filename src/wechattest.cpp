@@ -200,7 +200,8 @@ void WechatTest::fetch_content()
 {
     from_user_name = ui->lineEdit_from->text();
     to_user_name = ui->lineEdit_to->text();
-    content = ui->lineEdit_content->text();
+    content = ui->lineEdit_content->text().toUtf8();
+
 }
 void WechatTest::fetch_location()
 {
@@ -279,7 +280,7 @@ void WechatTest::on_button_clear_clicked()
 void WechatTest::send_request(QString url, QString data)
 {
     QUrl post_url(url);
-    QByteArray append(data.toLatin1());
+    QByteArray append(data.toUtf8());
     manager = new QNetworkAccessManager(this);
     QObject::connect(manager, SIGNAL(finished(QNetworkReply*)),
                      this, SLOT(finishedSlot(QNetworkReply*)));
