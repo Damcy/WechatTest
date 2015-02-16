@@ -306,8 +306,10 @@ void WechatTest::finishedSlot(QNetworkReply *reply)
     ui->textBrowser->append("----------------------------------------------------------------------------------------------------------------------------------------------");
     ui->textBrowser->append(string);
     reply->deleteLater();
-    delete manager;
-    manager = NULL;
+//    if(manager != NULL) {
+//        delete manager;
+//        manager = NULL;
+//    }
     ui->button_submit->setEnabled(true);
 }
 
